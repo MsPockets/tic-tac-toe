@@ -1,4 +1,4 @@
-curl "https://sei-library-api.herokuapp.com/sign-in" \
+curl "https://mspockets.github.io/tic-tac-toe" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

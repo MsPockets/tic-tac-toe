@@ -1,5 +1,5 @@
-const config = require('./../config')
-const store = require('./../store')
+const config = require('./config')
+const store = require('./store')
 
 const signUp = function(data) {
   return $.ajax({
@@ -11,14 +11,14 @@ const signUp = function(data) {
 
 const signIn = function(data) {
   return $.ajax({
-    url: config.apiUrl + "/sign-in",
+    url: config.apiUrl.production + "/sign-in",
     method: 'POST',
     data: data
   })
 }
 const changePassword = function(data) {
   return $.ajax({
-    url: config.apiUrl + "/change-password",
+    url: config.apiUrl.production + "/change-password",
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -30,7 +30,7 @@ const changePassword = function(data) {
 
 const signOut = function() {
   return $.ajax({
-    url: config.apiUrl + "/sign-out",
+    url: config.apiUrl.production + "/sign-out",
     method: 'DELETE',
     headers: {
       Authorization: 'Token token='+ store.user.token 
