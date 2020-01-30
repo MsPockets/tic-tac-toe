@@ -1,9 +1,8 @@
 'use strict'
 
-let apiUrl
-const apiUrls = {
-  production: 'https://mspockets.github.io/tic-tac-toe',
-  development: 'http://localhost:4741'
+const apiUrl = {
+  development: 'https://tic-tac-toe-wdi.herokuapp.com',
+  production: 'https://tic-tac-toe-wdi-production.herokuapp.com'
 }
 
 if (window.location.hostname === 'localhost') {
