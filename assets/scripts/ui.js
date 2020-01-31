@@ -1,6 +1,6 @@
 const store = require('./store')
 
-
+let playerToken 
 
 const onSignUpSuccess = function(response) {
   $('#message').text(response.user.email + ' signed up')
@@ -58,6 +58,10 @@ const onSignOutFailure = function(response) {
   $('#message').text('Failed to change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
+}
+
+const placeToken = function() {
+  $("button.id").text('')
 }
 
 

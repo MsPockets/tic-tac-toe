@@ -1,28 +1,28 @@
 ## Game logic
 ```js 
-if(markers[0] === markers[1] && markers[0] === markers[2]) {
+const gameBoard = ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']
 
+if(gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {{ 
 }
-else if(markers[3] === markers[4] && markers[3] === markers[5]) {
-
+else if(gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]){ 
 }
-else if(markers[6] === markers[7] && markers[6] === markers[8]) {
-
+else if(gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]){ 
 }
-else if(markers[0] === markers[8] && markers[0] === markers[4]) {
-
+else if(gameBoard[0] === gameBoard[8] && gameBoard[0] === gameBoard[4]){ 
 }
-else if(markers[2] === markers[4] && markers[2] === markers[6]) {
-
+else if(gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]){ 
 }
-else if(markers[0] === markers[3] && markers[0] === markers[6]) {
-
+else if(gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]){ 
 }
-else if(markers[1] === markers[4] && markers[1] === markers[7]) {
-
+else if(gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]){ 
 }
-else if(markers[2] === markers[5] && markers[2] === markers[8]) {
-
+else if(gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]) {
+}
+else if (//all buttons are marked but no win condition) {
+  $('#message').text('STALEMATE')
+}
+else {
+  return
 }
 ```
 ## UX

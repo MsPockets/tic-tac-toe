@@ -20,7 +20,7 @@
           <input name="credentials[email]" type="string" id="email" placeholder="example@example.com" required>
           <input name="credentials[password]" type="string" id="password" placeholder="Password" required>
           <input name="credentials[password_confirmation]" type="string" id="password" placeholder="Confirm Password" required>
-          <button id="sign-up">Sign Up</button>
+          <button id="sign-up" type="submit">Sign Up</button>
         </fieldset>
       </form>
 
@@ -29,7 +29,7 @@
           <h3>Sign In</h3>
           <input name="credentials[email]" type="string" id="email" placeholder="Your email here" required>
           <input name="credentials[password]" type="string" id="password" placeholder="Your password here">
-          <button id="sign-in">Sign In</button>
+          <button id="sign-in" type="submit">Sign In</button>
         </fieldset>
       </form>
 
@@ -38,26 +38,30 @@
           <h3>Change Password</h3>
           <input name="passwords[old]" type="string" id="OLDPW" placeholder="Old password" required>
           <input name="passwords[new]" type="string" id="NEWPW" placeholder="New password" required>
-          <button id="change-password">Change Password</button>
+          <button id="change-password" type="submit">Change Password</button>
         </fieldset>
       </form>
       <br>
       <form id="sign-out-form">
-        <button id="sign-out">Sign Out</button>
+        <button id="sign-out" type="submit">Sign Out</button>
       </form>
 
 
       <div class="container" id="game-board">
         <div class="row">
-          <button class="col-4" id="0" ></button>
-          <button class="col-4" id="1" ></button>
-          <button class="col-4" id="2" ></button>
-          <button class="col-4" id="3" ></button>
-          <button class="col-4" id="4" ></button>
-          <button class="col-4" id="5" ></button>
-          <button class="col-4" id="6" ></button>
-          <button class="col-4" id="7" ></button>
-          <button class="col-4" id="8" ></button>
+          <button class="game-tile" id="0">X</button>
+          <button class="game-tile" id="1">X</button>
+          <button class="game-tile" id="2">X</button>
+        </div>
+        <div class="row">
+          <button class="game-tile" id="3">X</button>
+          <button class="game-tile" id="4">O</button>
+          <button class="game-tile" id="5">X</button>
+        </div>
+        <div class="row">
+          <button class="game-tile" id="6">X</button>
+          <button class="game-tile" id="7">X</button>
+          <button class="game-tile" id="8">X</button>
         </div>
       </div>
       

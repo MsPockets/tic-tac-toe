@@ -1,8 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-.col4 {
-  width: 100px;
+button.game-tile {
+  max-width: 100px;
+  min-width: 100px;
   height: 100px;
+  font-size: 75px;
+  font-stretch: ultra-expanded;
   
-}
+  }

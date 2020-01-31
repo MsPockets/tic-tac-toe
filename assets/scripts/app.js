@@ -3,11 +3,11 @@
 const authEvents = require('./events')
 
 $(() => {
-  $('#sign-out-form')
-  $('#change-password-form')
-  $('#sign-up').on('click', authEvents.onSignUp)
-  $('#sign-in').on('click', authEvents.onSignIn)
-  $('#change-password').on('click', authEvents.onChangePassword)
-  $('#sign-out').on('click', authEvents.onSignOut) 
-  $('#game-board')
+  $('#sign-out-form').show()
+  $('#change-password-form').show()
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  $('#sign-out-form').on('submit', authEvents.onSignOut) 
+  $('#game-board').show()
   })
