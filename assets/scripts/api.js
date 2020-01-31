@@ -2,19 +2,23 @@ const config = require('./config')
 const store = require('./store')
 
 const signUp = function(data) {
+  console.log('signUP')
   return $.ajax({
     url: config.apiUrl + "/sign-up",
     method: 'POST',
     data: data
   })
+  
 }
 
 const signIn = function(data) {
+  console.log('signIn')
   return $.ajax({
     url: config.apiUrl + "/sign-in",
     method: 'POST',
     data: data
   })
+  
 }
 const changePassword = function(data) {
   return $.ajax({
