@@ -64,7 +64,10 @@ const onChangePassword  = function(event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-    api.changePassword(data)
+    api.changePassword(data) 
+
+      //SOMETHING IS PUTTING THIS STRAIGHT TO FAILURE AND IM NOT SURE WHY
+
       .then(ui.onChangePasswordSuccess)
       .catch(ui.onChangePasswordFailure)
 }

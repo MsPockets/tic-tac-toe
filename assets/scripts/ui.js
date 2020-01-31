@@ -32,9 +32,9 @@ const onSignInFailure = function(response) {
 }
 
 const onChangePasswordSuccess = function(response) {
+  store.user = response.user
   $('#message').text('changed password')
   $('#change-password').trigger('reset')  
-  store.user = response.user
   $('#message').removeClass()
   $('#message').addClass('success-message')
 }
@@ -45,8 +45,8 @@ const onChangePasswordFailure = function(response) {
 }
 
 const onSignOutSuccess = function(response) {
-  $('#message').text('Signed Out') 
   store.user = response.user
+  $('#message').text('Signed Out') 
   $('#sign-out').hide()
   $('#sign-in').show()
   $('#change-password').hide()
