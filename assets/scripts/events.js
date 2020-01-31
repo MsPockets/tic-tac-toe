@@ -71,11 +71,8 @@ const onSignOut  = function(event) {
 }
 
 
-const placeToken = function(event) {
-  if (player1 = true) {
 
-  }
-}
+
 
 
 module.exports = {

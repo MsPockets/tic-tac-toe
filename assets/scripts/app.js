@@ -9,3 +9,4 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut) 
   $('#game-board')
   })
+  

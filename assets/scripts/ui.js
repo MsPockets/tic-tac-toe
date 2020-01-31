@@ -49,11 +49,6 @@ const onSignOutFailure = function(response) {
   $('#message').addClass('failure')
 }
 
-const placeToken = function() {
-  $("button.id").text(playerToken)
-}
-
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
