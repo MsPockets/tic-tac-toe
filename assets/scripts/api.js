@@ -21,6 +21,7 @@ const signIn = function(data) {
   
 }
 const changePassword = function(data) {
+  console.log('click api works')
   return $.ajax({
     url: config.apiUrl + "/change-password",
     method: 'PATCH',
@@ -28,7 +29,6 @@ const changePassword = function(data) {
       Authorization: 'Token token=' + store.user.token
     },
     data: data
-    
   })
 }
 
