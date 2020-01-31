@@ -2,7 +2,7 @@
 ```js 
 const gameBoard = ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']
 
-if(gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {{ 
+if(gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) { 
 }
 else if(gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]){ 
 }
