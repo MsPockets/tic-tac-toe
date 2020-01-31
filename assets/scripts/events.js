@@ -40,6 +40,7 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 
 const onSignUp = function(event) {
@@ -62,18 +63,18 @@ const onSignIn = function(event) {
 
 const onChangePassword  = function(event) {
   event.preventDefault()
+  console.log(store.user)
   const form = event.target
   const data = getFormFields(form)
     api.changePassword(data)
       .then(ui.onChangePasswordSuccess)
-        console.log('i succeeded')
       .catch(ui.onChangePasswordFailure)
-        console.log('i failed')
 }
 
 const onSignOut  = function(event) {
-  event.preventDefault()
+  console.log('click')
   const form = event.target
+  getFormFields(form)
     api.SignOut()
       .then(ui.onSignOutSuccess)
       .catch(ui.onSignOutFailure)

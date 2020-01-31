@@ -3,7 +3,6 @@
 const authEvents = require('./events')
 
 $(() => {
-  $('#change-password-form')
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
