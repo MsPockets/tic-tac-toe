@@ -26,16 +26,8 @@
 // $().on('win', lossCounter += 1)
 // //win ratio
 // let winRatio = Math.floor(winRatio/loseRatio)*100 + '%'
-// //sign up/in page
-// $().hide()
-// $().show()
-// //instructions page
-// $().hide()
-// $().show()
-// //game page
-// $().hide()
-// $().show()
-// //
+
+
 
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
