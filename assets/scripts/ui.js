@@ -1,10 +1,10 @@
 const store = require('./store')
 
-let playerToken 
+let playerToken
 
 const onSignUpSuccess = function(response) {
   $('#message').text(response.user.email + ' signed up')
-  $('#sign-up').trigger('reset')
+  $('#sign-up-form').trigger('reset')
   $('#message').addClass('success-message')
 }
 const onSignUpFailure = function(response) {
@@ -14,7 +14,7 @@ const onSignUpFailure = function(response) {
 
 const onSignInSuccess = function(response) {
   $('#message').text(response.user.email + ' signed in')
-  $('#sign-in').trigger('reset')  
+  $('#sign-in-form').trigger('reset')
   store.user = response.user
   $('#message').removeClass()
   $('#message').addClass('success-message')
@@ -28,7 +28,7 @@ const onSignInFailure = function(response) {
 
 const onChangePasswordSuccess = function(response) {
   $('#message').text('Password successfully changed')
-  $('#change-password').trigger('reset') 
+  $('#change-password-form').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('success-message')
 }
@@ -39,7 +39,7 @@ const onChangePasswordFailure = function(response) {
 }
 
 const onSignOutSuccess = function(response) {
-  $('#message').text('Signed Out') 
+  $('#message').text('Signed Out')
   $('#message').removeClass()
   $('#message').addClass('success-message')
 }
