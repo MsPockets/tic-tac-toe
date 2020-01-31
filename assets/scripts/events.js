@@ -18,7 +18,7 @@
 // if (/* if win condition is met*/h) {}
 // else{}
 // //change player
-// let player1 = true
+
 // const changePlayer = () => player1 = !player1
 // //tally win
 // $().on('win', winCounter += 1)
@@ -69,6 +69,15 @@ const onSignOut  = function(event) {
       .then(ui.onSignOutSuccess)
       .catch(ui.onSignOutFailure)
 }
+
+
+const placeToken = function(event) {
+  if (player1 = true) {
+
+  }
+}
+
+
 module.exports = {
   onSignUp,
   onSignIn,

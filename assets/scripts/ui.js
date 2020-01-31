@@ -50,7 +50,7 @@ const onSignOutFailure = function(response) {
 }
 
 const placeToken = function() {
-  $("button.id").text('')
+  $("button.id").text(playerToken)
 }
 
 
