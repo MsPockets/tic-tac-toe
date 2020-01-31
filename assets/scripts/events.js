@@ -12,9 +12,9 @@
 
 // //reset
 // $().on('click', function (){})
-// //place marker 
+// //place marker
 // $().on('click', )
-// //check for wins 
+// //check for wins
 // if (/* if win condition is met*/h) {}
 // else{}
 // //change player
@@ -22,9 +22,9 @@
 // const changePlayer = () => player1 = !player1
 // //tally win
 // $().on('win', winCounter += 1)
-// //tally loss 
+// //tally loss
 // $().on('win', lossCounter += 1)
-// //win ratio 
+// //win ratio
 // let winRatio = Math.floor(winRatio/loseRatio)*100 + '%'
 // //sign up/in page
 // $().hide()
@@ -65,7 +65,7 @@ const onChangePassword  = function(event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-    api.changePassword(data) 
+    api.changePassword(data)
 
       //SOMETHING IS PUTTING THIS STRAIGHT TO FAILURE AND IM NOT SURE WHY
 
@@ -73,7 +73,7 @@ const onChangePassword  = function(event) {
       .catch(ui.onChangePasswordFailure)
 }
 
-const onsignOut  = function(event) {
+const onSignOut  = function(event) {
   const form = event.target
   const data = getFormFields(form)
     api.signOut()
