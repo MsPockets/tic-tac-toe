@@ -12,5 +12,6 @@ $(() => {
   $('#start-game').hide()
   $('#reset').hide()
   $('#game-info').hide()
+  $('#start-game').on('click', authEvents.onStartGame)
   })
   

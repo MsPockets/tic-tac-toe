@@ -52,6 +52,15 @@ const onSignOut  = function(event) {
       .catch(ui.onSignOutFailure)
 }
 
+const onStartGame = function(event) {
+  const form = event.target
+  const data = getFormFields(form)
+    api.startPlaying()
+      .then(ui.onStartPlayingSuccess)
+      .catch(ui.onStartPlayingFailure)
+    
+}
+
 const onMakeMove = function(event) {
   $('#game-tile.this').text(playerMarker)
   checkForWin()
@@ -64,5 +73,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onStartGame,
+  onMakeMove
 }

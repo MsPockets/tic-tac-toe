@@ -24,7 +24,10 @@ const onSignInSuccess = function(response) {
   $('#message').addClass('success-message')
   $('#change-password-form').show()
   $('#sign-out').show()
-  $('#sign-up').hide()
+  $('#sign-up-form').hide()
+  $('#sign-in-form').hide()
+  $('#instructions').show()
+  $('#start-game').show()
 }
 
 const onSignInFailure = function(response) {
@@ -58,6 +61,21 @@ const onSignOutFailure = function(response) {
   $('#message').addClass('failure')
 }
 
+const onStartPlayingSuccess = function() {
+  $('#game-board').show()
+  $('#game-board').trigger('reset')
+  $('#reset').show()
+  $('#instructions').hide()
+  $('#game-info').show()
+  $('#message').text('Game board created')
+}
+
+const onStartPlayingFailure = function () {
+  $('#message').text('Failed to load game board')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -66,5 +84,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onStartPlayingSuccess,
+  onStartPlayingFailure
 }

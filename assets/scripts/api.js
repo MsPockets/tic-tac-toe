@@ -12,7 +12,6 @@ const signUp = function(data) {
 }
 
 const signIn = function(data) {
-  console.log('signIn')
   return $.ajax({
     url: config.apiUrl + "/sign-in",
     method: 'POST',
@@ -42,10 +41,21 @@ const signOut = function() {
   })
 }
 
+const startPlaying = function () {
+  return $.ajax({
+    url: config.apiUrl + "/games",
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
   
   module.exports = {
     signUp,
     signIn,
     changePassword,
-    signOut
+    signOut,
+    startPlaying
   }
