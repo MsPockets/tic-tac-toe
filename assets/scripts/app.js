@@ -13,5 +13,6 @@ $(() => {
   $('#reset').hide()
   $('#game-info').hide()
   $('#start-game').on('click', authEvents.onStartGame)
+  $('.game-tile').on('click', authEvents.onMakeMove)
   })
   

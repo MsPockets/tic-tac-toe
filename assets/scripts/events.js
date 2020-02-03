@@ -4,17 +4,7 @@ const ui = require('./ui')
 const store = require('./store')
 
 
-let turnCounter = 0
-let playerMarker = ' '
-let changePlayer = function() {
-  turnCounter += 1
-  if (turnCounter % 2 === 0){
-    playerMarker = 'x'
-  }
-  else {
-    playerMarker = 'o'
-  }
-}
+
 
 
 const onSignUp = function(event) {
@@ -61,10 +51,14 @@ const onStartGame = function(event) {
     
 }
 
+
 const onMakeMove = function(event) {
-  $('#game-tile.this').text(playerMarker)
-  checkForWin()
-  changePlayer()
+  // console.log(event.target)
+  // console.log(store.game)
+    api.makeMove(event)
+      .then(() => ui.onMakeMoveSuccess(event))
+      .catch(ui.onMakeMoveFailure)
+  
 }
 
 

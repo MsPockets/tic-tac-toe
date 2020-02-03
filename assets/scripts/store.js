@@ -1,6 +1,10 @@
 'use strict'
-
+let playerMarker = 'x' 
 const store = {
 }
 
-module.exports = store
+module.exports = {
+  playerMarker,
+  store
+}
+

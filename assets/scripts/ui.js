@@ -1,10 +1,7 @@
 const store = require('./store')
+const api = require('./api')
 
-const onMakeMove = function() {
-  $('#game-tile.this').text(playermarker)
-  checkForWin()
-  turnCounter += 1
-}
+
 
 const onSignUpSuccess = function(response) {
   $('#message').text(response.user.email + ' signed up')
@@ -61,17 +58,31 @@ const onSignOutFailure = function(response) {
   $('#message').addClass('failure')
 }
 
-const onStartPlayingSuccess = function() {
+const onStartPlayingSuccess = function(response) {
   $('#game-board').show()
   $('#game-board').trigger('reset')
   $('#reset').show()
   $('#instructions').hide()
   $('#game-info').show()
   $('#message').text('Game board created')
+  store.game = response.game
 }
 
 const onStartPlayingFailure = function () {
   $('#message').text('Failed to load game board')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+}
+
+const onMakeMoveSuccess = function (event) {
+  $('#message').text('Move Made')
+  $(event.target).text(store.playerMarker)
+  api.changePlayer()
+  
+}
+
+const onMakeMoveFailure = function () {
+  $('#message').text('Failed to make move')
   $('#message').removeClass()
   $('#message').addClass('failure')
 }
@@ -86,5 +97,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onStartPlayingSuccess,
-  onStartPlayingFailure
+  onStartPlayingFailure,
+  onMakeMoveSuccess,
+  onMakeMoveFailure
 }

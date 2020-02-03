@@ -1,6 +1,13 @@
 const config = require('./config')
 const store = require('./store')
 
+
+const changePlayer = () => {
+  console.log(store.playerMarker)
+  store.playerMarker === 'x' ? store.playerMarker = 'o' : store.playerMarker = 'x'
+  console.log(store.playerMarker)
+}
+
 const signUp = function(data) {
   console.log('signUP')
   return $.ajax({
@@ -50,6 +57,25 @@ const startPlaying = function () {
     }
   })
 }
+const makeMove = function (event) {
+  console.log($(event.target).attr('id'))
+  return $.ajax({
+    url: config.apiUrl + "/games/" + store.game.id,
+    method: "PATCH",
+    headers: {
+      Authorization: 'Token token=' +store.user.token
+    },
+    data: {
+      "game": {
+        "cell": {
+          "index": $(event.target).attr('id'),
+          "value": store.playerMarker
+        },
+        "over": false
+      }
+    }
+  })
+}
 
   
   module.exports = {
@@ -57,5 +83,7 @@ const startPlaying = function () {
     signIn,
     changePassword,
     signOut,
-    startPlaying
+    startPlaying,
+    makeMove,
+    changePlayer
   }
