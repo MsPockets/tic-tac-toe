@@ -49,39 +49,42 @@
 
       <div class="container" id="game-board">
         <div class="row">
-          <button class="game-tile" id="0"></button>
-          <button class="game-tile" id="1"></button>
-          <button class="game-tile" id="2"></button>
+          <button class="game-tile"></button>
+          <button class="game-tile"></button>
+          <button class="game-tile"></button>
         </div>
         <div class="row">
-          <button class="game-tile" id="3"></button>
-          <button class="game-tile" id="4"></button>
-          <button class="game-tile" id="5"></button>
+          <button class="game-tile"></button>
+          <button class="game-tile"></button>
+          <button class="game-tile"></button>
         </div>
         <div class="row">
-          <button class="game-tile" id="6"></button>
-          <button class="game-tile" id="7"></button>
-          <button class="game-tile" id="8"></button>
+          <button class="game-tile"></button>
+          <button class="game-tile"></button>
+          <button class="game-tile"></button>
         </div>
       </div>
-
-      <h2>How to Play</h2>
-      <p>3 in a row, or Tic-Tac-Toe, is a simple game. The players take turns placing their markers on the game board. The goal is to get 3 of your markers in a row, while using your markers to block your opponent's.</p>
-      <p>Click the start button to bring up the game board. Then select your token and place it in a square by clicking that square</p>
+      
+      <div id="instructions">
+        <h2>How to Play</h2>
+        <p>3 in a row, or Tic-Tac-Toe, is a simple game. The players take turns placing their markers on the game board. The goal is to get 3 of your markers in a row, while using your markers to block your opponent's.</p>
+        <p>Click the start button to bring up the game board. Then select your token and place it in a square by clicking that square</p>
+      </div>
 
       <button id="start-game">Start Playing</button>
       <button id="reset">Reset</button>
+      <div id="game-info">
+        <h4 id="current-player">Current Player:</h4>
+        <h4 id="player-token"></h4>
 
-      <h4 id="current-player">Current Player:</h4>
-      <h4 id="player-token"></h4>
+        <h5>Wins:</h5>
+        <h5 id="wins"<|></h5>
 
-      <h5>Wins:</h5>
-      <h5 id="wins"<|></h5>
+        <h5>Losses:</h5>
+        <h5 id="losses"></h5>
 
-      <h5>Losses:</h5>
-      <h5 id="losses"></h5>
-
-      <h5>Win ratio:</h5>
-      <h5 id="win-ratio"></h5>
+        <h5>Win ratio:</h5>
+        <h5 id="win-ratio"></h5>
+      </div>
     </body>
 </html>

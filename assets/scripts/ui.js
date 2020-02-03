@@ -1,6 +1,10 @@
 const store = require('./store')
 
-let playerToken
+const onMakeMove = function() {
+  $('#game-tile.this').text(playermarker)
+  checkForWin()
+  turnCounter += 1
+}
 
 const onSignUpSuccess = function(response) {
   $('#message').text(response.user.email + ' signed up')
@@ -18,6 +22,9 @@ const onSignInSuccess = function(response) {
   store.user = response.user
   $('#message').removeClass()
   $('#message').addClass('success-message')
+  $('#change-password-form').show()
+  $('#sign-out').show()
+  $('#sign-up').hide()
 }
 
 const onSignInFailure = function(response) {
@@ -42,6 +49,8 @@ const onSignOutSuccess = function(response) {
   $('#message').text('Signed Out')
   $('#message').removeClass()
   $('#message').addClass('success-message')
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
 const onSignOutFailure = function(response) {
   $('#message').text('Failed to sign out')

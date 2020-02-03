@@ -1,38 +1,20 @@
-// //sign up
-// $().on('click', )
-// //sign in
-// $().on('click', )
-// //change password
-// $().on('click', )
-// //sign out
-// $().on('click', )
-// //start game
-// $().on('click', function () {})
-
-
-// //reset
-// $().on('click', function (){})
-// //place marker
-// $().on('click', )
-// //check for wins
-// if (/* if win condition is met*/h) {}
-// else{}
-// //change player
-
-// const changePlayer = () => player1 = !player1
-// //tally win
-// $().on('win', winCounter += 1)
-// //tally loss
-// $().on('win', lossCounter += 1)
-// //win ratio
-// let winRatio = Math.floor(winRatio/loseRatio)*100 + '%'
-
-
-
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
+
+
+let turnCounter = 0
+let playerMarker = ' '
+let changePlayer = function() {
+  turnCounter += 1
+  if (turnCounter % 2 === 0){
+    playerMarker = 'x'
+  }
+  else {
+    playerMarker = 'o'
+  }
+}
 
 
 const onSignUp = function(event) {
@@ -70,8 +52,11 @@ const onSignOut  = function(event) {
       .catch(ui.onSignOutFailure)
 }
 
-
-
+const onMakeMove = function(event) {
+  $('#game-tile.this').text(playerMarker)
+  checkForWin()
+  changePlayer()
+}
 
 
 
