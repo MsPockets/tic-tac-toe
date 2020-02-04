@@ -101,6 +101,10 @@ const onSignOutSuccess = function(response) {
   $('#message').addClass('success-message')
   $('#sign-up-form').show()
   $('#sign-in-form').show()
+  $('#game-board').hide()
+  $('#change-password-form').hide()
+  $('#sign-out').hide()
+  $('#reset').hide()
 }
 const onSignOutFailure = function(response) {
   $('#message').text('Failed to sign out')
@@ -110,7 +114,6 @@ const onSignOutFailure = function(response) {
 
 const onStartPlayingSuccess = function(response) {
   $('#game-board').show()
-  $('#game-board').trigger('reset')
   $('#reset').show()
   $('#instructions').hide()
   $('#game-info').show()
@@ -118,6 +121,8 @@ const onStartPlayingSuccess = function(response) {
   store.game = response.game
   $('#current-player').show()
   $('#current-player').text(`Current Player: ${store.playerMarker}`)
+  $('#start-game').hide()
+
 }
 
 const onStartPlayingFailure = function () {
