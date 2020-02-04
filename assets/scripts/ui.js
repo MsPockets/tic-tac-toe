@@ -5,31 +5,51 @@ let turnCounter = 0
 const changePlayer = () => {
   store.playerMarker === 'x' ? store.playerMarker = 'o' : store.playerMarker = 'x'
 }
+let gameOver = false
+let gamesPlayed = 0
+const clearBoxes = function() {
+  for (let i = 0; i < 9; i++) {
+    const buttonSelector = '.game-tile#' + i
+    $(buttonSelector).text('')
+  }
+}
 
 const checkForWin = function () {
   if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells[1]) && (store.game.cells[0] === store.game.cells[2])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[3] !== '') && (store.game.cells[3] === store.game.cells [4] && store.game.cells[3] === store.game.cells[5])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[6] !== '') && (store.game.cells[6] === store.game.cells [7] && store.game.cells[6] === store.game.cells[8])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells [3] && store.game.cells[0] === store.game.cells[6])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[1] !== '') && (store.game.cells[1] === store.game.cells [4] && store.game.cells[1] === store.game.cells[7])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[2] !== '') && (store.game.cells[2] === store.game.cells [5] && store.game.cells[2] === store.game.cells[8])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells [4] && store.game.cells[0] === store.game.cells[8])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
   }
   else if ((store.game.cells[2] !== '') && (store.game.cells[2] === store.game.cells [4] && store.game.cells[2] === store.game.cells[6])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
+    return gameOver = true
+  }
+  else if ((store.game.cells[0] !== '') && (store.game.cells[1] !== '') && (store.game.cells[2] !== '') && (store.game.cells[3] !== '') && (store.game.cells[4] !== '') && (store.game.cells[5] !== '') && (store.game.cells[6] !== '') && (store.game.cells[7] !== '') && (store.game.cells[8] !== '')) {
+    $('#message').text('Draw!')
+    return gameOver = true
   }
 }
 
@@ -107,8 +127,8 @@ const onStartPlayingFailure = function () {
 }
 
 const onMakeMoveSuccess = function (event) {
-  console.log(event.target)
-  if ($(event.target).is(':empty')) {
+  // console.log(gameOver)
+  if ($(event.target).is(':empty') && (gameOver === false)) {
     $('#current-player').text(`Current Player: ${store.playerMarker}`)
     $('#message').text('Move Made')
     $(event.target).text(store.playerMarker)
@@ -118,9 +138,8 @@ const onMakeMoveSuccess = function (event) {
       checkForWin()
     }
     changePlayer()
-    console.log(store.game.cells)
-  }
-    
+    // console.log(store.game.cells)
+  } 
   else {
     return $('#message').text("You can't place your token here!")
   }
@@ -132,12 +151,24 @@ const onMakeMoveFailure = function () {
   $('#message').addClass('failure')
 }
 
-const onResetSuccess = function () {
-
+const onResetSuccess = function (response) {
+  // console.log(store.game)
+  // console.log(response.game)
+  store.game = response.game
+  // console.log('trying to clear')
+  clearBoxes()
+  $('#message').text('New game started')
+  $('#current-player').text(`Current Player: ${store.playerMarker}`)
+  gameOver = false
+  gamesPlayed += 1
+  $('#game-counter').text(`Games Played: ${gamesPlayed}`)
 }
 
 const onResetFailure = function() {
-
+  // console.log('didnt feel like trying')
+  $('#message').text('Failed to reset')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
 }
 
 module.exports = {

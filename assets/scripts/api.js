@@ -5,7 +5,7 @@ const store = require('./store')
 
 
 const signUp = function(data) {
-  console.log('signUP')
+  //console.log('signUP')
   return $.ajax({
     url: config.apiUrl + "/sign-up",
     method: 'POST',
@@ -54,7 +54,7 @@ const startPlaying = function () {
   })
 }
 const makeMove = function (event) {
-  console.log($(event.target).attr('id'))
+  //console.log($(event.target).attr('id'))
   return $.ajax({
     url: config.apiUrl + "/games/" + store.game.id,
     method: "PATCH",
