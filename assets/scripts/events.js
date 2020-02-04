@@ -54,14 +54,18 @@ const onStartGame = function(event) {
 
 const onMakeMove = function(event) {
   // console.log(event.target)
-  // console.log(store.game)
+  console.log(store.game)
     api.makeMove(event)
       .then(() => ui.onMakeMoveSuccess(event))
       .catch(ui.onMakeMoveFailure)
   
 }
 
-
+const onReset = function(event) {
+  api.reset(event)
+    .then(ui.onResetSuccess)
+    .catch(ui.onResetFailure)
+}
 
 module.exports = {
   onSignUp,
@@ -69,5 +73,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onStartGame,
-  onMakeMove
+  onMakeMove,
+  onReset
 }

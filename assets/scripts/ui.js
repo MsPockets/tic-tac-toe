@@ -1,7 +1,37 @@
 const store = require('./store')
 const api = require('./api')
 
+let turnCounter = 0
+const changePlayer = () => {
+  store.playerMarker === 'x' ? store.playerMarker = 'o' : store.playerMarker = 'x'
+}
 
+const checkForWin = function () {
+  if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells[1]) && (store.game.cells[0] === store.game.cells[2])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[3] !== '') && (store.game.cells[3] === store.game.cells [4] && store.game.cells[3] === store.game.cells[5])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[6] !== '') && (store.game.cells[6] === store.game.cells [7] && store.game.cells[6] === store.game.cells[8])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells [3] && store.game.cells[0] === store.game.cells[6])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[1] !== '') && (store.game.cells[1] === store.game.cells [4] && store.game.cells[1] === store.game.cells[7])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[2] !== '') && (store.game.cells[2] === store.game.cells [5] && store.game.cells[2] === store.game.cells[8])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells [4] && store.game.cells[0] === store.game.cells[8])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+  else if ((store.game.cells[2] !== '') && (store.game.cells[2] === store.game.cells [4] && store.game.cells[2] === store.game.cells[6])) {
+    $('#message').text(`${store.playerMarker}'s Win! `)
+  }
+}
 
 const onSignUpSuccess = function(response) {
   $('#message').text(response.user.email + ' signed up')
@@ -49,8 +79,8 @@ const onSignOutSuccess = function(response) {
   $('#message').text('Signed Out')
   $('#message').removeClass()
   $('#message').addClass('success-message')
-  $('#sign-up').show()
-  $('#sign-in').show()
+  $('#sign-up-form').show()
+  $('#sign-in-form').show()
 }
 const onSignOutFailure = function(response) {
   $('#message').text('Failed to sign out')
@@ -66,6 +96,8 @@ const onStartPlayingSuccess = function(response) {
   $('#game-info').show()
   $('#message').text('Game board created')
   store.game = response.game
+  $('#current-player').show()
+  $('#current-player').text(`Current Player: ${store.playerMarker}`)
 }
 
 const onStartPlayingFailure = function () {
@@ -75,16 +107,37 @@ const onStartPlayingFailure = function () {
 }
 
 const onMakeMoveSuccess = function (event) {
-  $('#message').text('Move Made')
-  $(event.target).text(store.playerMarker)
-  api.changePlayer()
-  
+  console.log(event.target)
+  if ($(event.target).is(':empty')) {
+    $('#current-player').text(`Current Player: ${store.playerMarker}`)
+    $('#message').text('Move Made')
+    $(event.target).text(store.playerMarker)
+    turnCounter += 1
+    store.game.cells[$(event.target).attr('id')] = store.playerMarker
+    if (turnCounter >= 5) {
+      checkForWin()
+    }
+    changePlayer()
+    console.log(store.game.cells)
+  }
+    
+  else {
+    return $('#message').text("You can't place your token here!")
+  }
 }
 
 const onMakeMoveFailure = function () {
   $('#message').text('Failed to make move')
   $('#message').removeClass()
   $('#message').addClass('failure')
+}
+
+const onResetSuccess = function () {
+
+}
+
+const onResetFailure = function() {
+
 }
 
 module.exports = {
@@ -99,5 +152,8 @@ module.exports = {
   onStartPlayingSuccess,
   onStartPlayingFailure,
   onMakeMoveSuccess,
-  onMakeMoveFailure
+  onMakeMoveFailure,
+  checkForWin,
+  onResetSuccess,
+  onResetFailure
 }

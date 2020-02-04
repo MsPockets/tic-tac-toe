@@ -2,11 +2,7 @@ const config = require('./config')
 const store = require('./store')
 
 
-const changePlayer = () => {
-  console.log(store.playerMarker)
-  store.playerMarker === 'x' ? store.playerMarker = 'o' : store.playerMarker = 'x'
-  console.log(store.playerMarker)
-}
+
 
 const signUp = function(data) {
   console.log('signUP')
@@ -77,6 +73,17 @@ const makeMove = function (event) {
   })
 }
 
+const reset = function(event) {
+  return $.ajax({
+    url: config.apiUrl + "/games",
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+
   
   module.exports = {
     signUp,
@@ -85,5 +92,5 @@ const makeMove = function (event) {
     signOut,
     startPlaying,
     makeMove,
-    changePlayer
+    reset
   }
