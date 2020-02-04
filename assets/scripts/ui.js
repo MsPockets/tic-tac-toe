@@ -78,6 +78,7 @@ const onSignInSuccess = function(response) {
 }
 
 const onSignInFailure = function(response) {
+  $('#sign-in-form').trigger('reset')
   $('#message').text('Failed to sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -90,6 +91,7 @@ const onChangePasswordSuccess = function(response) {
   $('#message').addClass('success-message')
 }
 const onChangePasswordFailure = function(response) {
+  $('#change-password-form').trigger('reset')
   $('#message').text('Failed to change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
