@@ -18,7 +18,7 @@
         <fieldset>
           <h3>Sign Up</h3>
           <input name="credentials[email]" type="string" id="sign-up-email" placeholder="example@example.com" required>
-          <input name="credentials[password]" type="string" id="sign-up-password" placeholder="Password" required>
+          <input name="credentials[password]" type="password" id="sign-up-password" placeholder="Password" required>
           <input name="credentials[password_confirmation]" type="string" id="confirm-password" placeholder="Confirm Password" required>
           <button id="sign-up" type="submit">Sign Up</button>
         </fieldset>
@@ -28,7 +28,7 @@
         <fieldset>
           <h3>Sign In</h3>
           <input name="credentials[email]" type="string" id="sign-in-email" placeholder="Your email here" required>
-          <input name="credentials[password]" type="string" id="sign-in-password" placeholder="Your password here">
+          <input name="credentials[password]" type="password" id="sign-in-password" placeholder="Your password here">
           <button id="sign-in" type="submit">Sign In</button>
         </fieldset>
       </form>
@@ -36,8 +36,8 @@
       <form id="change-password-form">
         <fieldset>
           <h3>Change Password</h3>
-          <input name="passwords[old]" type="string" id="OLDPW" placeholder="Old password" required>
-          <input name="passwords[new]" type="string" id="NEWPW" placeholder="New password" required>
+          <input name="passwords[old]" type="password" id="OLDPW" placeholder="Old password" required>
+          <input name="passwords[new]" type="password" id="NEWPW" placeholder="New password" required>
           <button id="change-password" type="submit">Change Password</button>
         </fieldset>
       </form>
@@ -48,17 +48,17 @@
 
 
       <div class="container" id="game-board">
-        <div class="row">
+        <div class="row1">
           <button class="game-tile" id="0"></button>
           <button class="game-tile" id="1"></button>
           <button class="game-tile" id="2"></button>
         </div>
-        <div class="row">
+        <div class="row2">
           <button class="game-tile" id="3"></button>
           <button class="game-tile" id="4"></button>
           <button class="game-tile" id="5"></button>
         </div>
-        <div class="row">
+        <div class="row3">
           <button class="game-tile" id="6"></button>
           <button class="game-tile" id="7"></button>
           <button class="game-tile" id="8"></button>

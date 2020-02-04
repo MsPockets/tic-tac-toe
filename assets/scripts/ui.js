@@ -56,7 +56,7 @@ const checkForWin = function () {
 const onSignUpSuccess = function(response) {
   $('#message').text(response.user.email + ' signed up')
   $('#sign-up-form').trigger('reset')
-  $('#message').addClass('success-message')
+  $('#message').addClass('success')
 }
 const onSignUpFailure = function(response) {
   $('#message').text('Failed to sign up')
@@ -68,7 +68,7 @@ const onSignInSuccess = function(response) {
   $('#sign-in-form').trigger('reset')
   store.user = response.user
   $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#message').addClass('success')
   $('#change-password-form').show()
   $('#sign-out').show()
   $('#sign-up-form').hide()
@@ -88,7 +88,7 @@ const onChangePasswordSuccess = function(response) {
   $('#message').text('Password successfully changed')
   $('#change-password-form').trigger('reset')
   $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#message').addClass('success')
 }
 const onChangePasswordFailure = function(response) {
   $('#change-password-form').trigger('reset')
@@ -100,7 +100,7 @@ const onChangePasswordFailure = function(response) {
 const onSignOutSuccess = function(response) {
   $('#message').text('Signed Out')
   $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#message').addClass('success')
   $('#sign-up-form').show()
   $('#sign-in-form').show()
   $('#game-board').hide()
@@ -120,6 +120,7 @@ const onStartPlayingSuccess = function(response) {
   $('#instructions').hide()
   $('#game-info').show()
   $('#message').text('Game board created')
+  $('#message').addClass('success')
   store.game = response.game
   $('#current-player').show()
   $('#current-player').text(`Current Player: ${store.playerMarker}`)
@@ -137,6 +138,8 @@ const onMakeMoveSuccess = function (event) {
   // console.log(gameOver)
   if ($(event.target).is(':empty') && (gameOver === false)) {
     $('#current-player').text(`Current Player: ${store.playerMarker}`)
+    $('#message').removeClass()
+    $('#message').addClass('success')
     $('#message').text('Move Made')
     $(event.target).text(store.playerMarker)
     turnCounter += 1
@@ -148,7 +151,10 @@ const onMakeMoveSuccess = function (event) {
     // console.log(store.game.cells)
   } 
   else {
+    $('#message').removeClass()
+    $('#message').addClass('failure')
     return $('#message').text("You can't place your token here!")
+    
   }
 }
 
@@ -164,6 +170,8 @@ const onResetSuccess = function (response) {
   store.game = response.game
   // console.log('trying to clear')
   clearBoxes()
+  $('#message').removeClass()
+  $('#message').addClass('success')
   $('#message').text('New game started')
   $('#current-player').text(`Current Player: ${store.playerMarker}`)
   gameOver = false

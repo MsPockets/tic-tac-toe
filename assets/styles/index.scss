@@ -1,11 +1,38 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-button.game-tile {
-  max-width: 100px;
-  min-width: 100px;
+
+button{
+  border: none;
+  background-color: #58c9c9;
+}
+
+.game-tile {
   height: 100px;
-  font-size: 75px;
-  font-stretch: ultra-expanded;
-  
-  }
+  min-width: 100px;
+  max-width: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  border-top: 5px solid teal;
+  border-right: 5px solid teal;
+  box-sizing: margin-box;
+  background-color: white;
+}
+.game-tile:nth-child(3n){
+  border-right: none;
+}
+.row1 > .game-tile {
+  border-top: none;
+}
+.row1, .row2, .row3 {
+  display: flex;
+}
+.success {
+  background-color: #61ffd3;
+  color: #39a593;
+}
+.failure {
+  color:  #CB8CBD;
+  background-color: #ffbc77;
+}
