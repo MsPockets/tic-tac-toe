@@ -3,7 +3,9 @@
     <head>
       <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
+      <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico&display=swap');
+        </style>
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -12,7 +14,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-    <h1>3-In-A-Row</h1>
+    <h1>3-in-a-row</h1>
       <p id="message"></p>
       <form id="sign-up-form">
         <fieldset>
@@ -44,27 +46,26 @@
       <br>
 
       <button id="sign-out" type="submit">Sign Out</button>
-
-
-
+    <br>
+    <br>
       <div class="container" id="game-board">
         <div class="row1">
-          <button class="game-tile" id="0"></button>
-          <button class="game-tile" id="1"></button>
-          <button class="game-tile" id="2"></button>
+          <div class="game-tile" id="0"></div>
+          <div class="game-tile" id="1"></div>
+          <div class="game-tile" id="2"></div>
         </div>
         <div class="row2">
-          <button class="game-tile" id="3"></button>
-          <button class="game-tile" id="4"></button>
-          <button class="game-tile" id="5"></button>
+          <div class="game-tile" id="3"></div>
+          <div class="game-tile" id="4"></div>
+          <div class="game-tile" id="5"></div>
         </div>
         <div class="row3">
-          <button class="game-tile" id="6"></button>
-          <button class="game-tile" id="7"></button>
-          <button class="game-tile" id="8"></button>
+          <div class="game-tile" id="6"></div>
+          <div class="game-tile" id="7"></div>
+          <div class="game-tile" id="8"></div>
         </div>
       </div>
-      
+    <br>
       <div id="instructions">
         <h2>How to Play</h2>
         <p>3 in a row, or Tic-Tac-Toe, is a simple game. The players take turns placing their markers on the game board. The goal is to get 3 of your markers in a row, while using your markers to block your opponent's.</p>
