@@ -1,8 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
 
 body {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Kaushan Script', cursive;
   background: url(https://wallpaperaccess.com/full/729396.jpg);
   background-size: 100%;
   text-align: center;
@@ -44,6 +44,9 @@ button{
   color: #39a593;
 }
 .failure {
-  color:  #CB8CBD;
-  background-color: #ffbc77;
+  background-color:  #CB8CBD;
+  color: #db3f3f;
+}
+#message {
+  font-size: 30px;
 }

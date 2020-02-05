@@ -1,9 +1,9 @@
 const store = require('./store')
 const api = require('./api')
-let playerMarker = 'x' 
+ 
 let turnCounter = 0
 const changePlayer = () => {
-  playerMarker === 'x' ? playerMarker = 'o' : playerMarker = 'x'
+  store.playerMarker === 'x' ? store.playerMarker = 'o' : store.playerMarker = 'x'
 }
 let gameOver = false
 let gamesPlayed = 0
@@ -16,35 +16,35 @@ const clearBoxes = function() {
 
 const checkForWin = function () {
   if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells[1]) && (store.game.cells[0] === store.game.cells[2])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[3] !== '') && (store.game.cells[3] === store.game.cells [4] && store.game.cells[3] === store.game.cells[5])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[6] !== '') && (store.game.cells[6] === store.game.cells [7] && store.game.cells[6] === store.game.cells[8])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells [3] && store.game.cells[0] === store.game.cells[6])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[1] !== '') && (store.game.cells[1] === store.game.cells [4] && store.game.cells[1] === store.game.cells[7])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[2] !== '') && (store.game.cells[2] === store.game.cells [5] && store.game.cells[2] === store.game.cells[8])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells [4] && store.game.cells[0] === store.game.cells[8])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[2] !== '') && (store.game.cells[2] === store.game.cells [4] && store.game.cells[2] === store.game.cells[6])) {
-    $('#message').text(`${playerMarker}'s Win! `)
+    $('#message').text(`${store.playerMarker}'s Win! `)
     return gameOver = true
   }
   else if ((store.game.cells[0] !== '') && (store.game.cells[1] !== '') && (store.game.cells[2] !== '') && (store.game.cells[3] !== '') && (store.game.cells[4] !== '') && (store.game.cells[5] !== '') && (store.game.cells[6] !== '') && (store.game.cells[7] !== '') && (store.game.cells[8] !== '')) {
@@ -128,7 +128,7 @@ const onStartPlayingSuccess = function(response) {
   $('#message').addClass('success')
   store.game = response.game
   $('#current-player').show()
-  $('#current-player').text(`Current Player: ${playerMarker}`)
+  $('#current-player').text(`Current Player: ${store.playerMarker}`)
   $('#game-counter').show()
   $('#game-counter').text(`Games Played: ${gamesPlayed}`)
   $('#start-game').hide()
@@ -144,13 +144,13 @@ const onStartPlayingFailure = function () {
 const onMakeMoveSuccess = function (event) {
   // console.log(gameOver)
   if ($(event.target).is(':empty') && (gameOver === false)) {
-    $('#current-player').text(`Current Player: ${playerMarker}`)
+    $('#current-player').text(`Current Player: ${store.playerMarker}`)
     $('#message').removeClass()
     $('#message').addClass('success')
     $('#message').text('Move Made')
-    $(event.target).text(playerMarker)
+    $(event.target).text(store.playerMarker)
     turnCounter += 1
-    store.game.cells[$(event.target).attr('id')] = playerMarker
+    store.game.cells[$(event.target).attr('id')] = store.playerMarker
     if (turnCounter >= 5) {
       checkForWin()
     }
@@ -180,10 +180,10 @@ const onResetSuccess = function (response) {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#message').text('New game started')
-  $('#current-player').text(`Current Player: ${playerMarker}`)
+  $('#current-player').text(`Current Player: ${store.playerMarker}`)
   gameOver = false
   gamesPlayed += 1
-  playerMarker = 'x'
+  store.playerMarker = 'x'
   $('#game-counter').text(`Games Played: ${gamesPlayed}`)
 }
 
