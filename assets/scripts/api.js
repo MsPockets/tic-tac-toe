@@ -83,6 +83,16 @@ const reset = function(event) {
   })
 }
 
+const getGames = function (event) {
+  return $.ajax({
+    url: config.apiUrl + "/games",
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 
   
   module.exports = {
@@ -92,5 +102,6 @@ const reset = function(event) {
     signOut,
     startPlaying,
     makeMove,
-    reset
+    reset,
+    getGames
   }

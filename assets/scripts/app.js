@@ -15,5 +15,7 @@ $(() => {
   $('#start-game').on('click', authEvents.onStartGame)
   $('.game-tile').on('click', authEvents.onMakeMove)
   $('#reset').on('click', authEvents.onReset)
+  $('#get-games').hide()
+  $('#get-games').on('click', authEvents.onGetGames)
   })
   

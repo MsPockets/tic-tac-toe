@@ -29,5 +29,8 @@ On day 3 of the project, I built the game board and the game logic that would ma
 On the final day of the project, I spent my time styling and ironing out a few bugs. Some issues I had to fix were auto clearing form fields on a failure, clearing the game board after signing out, and showing elements after signing out
 
 **Materials Used**
-For this project I used Visual Studios Code, Google Fonts, references from stack exchange, google search for a background image, and of course spotify for working tunes. 
+For this project I used Visual Studios Code, Google Fonts, references from stack exchange, google search for a background image, and of course spotify for working tunes. The languages used in this project are html, css, and javascript.
+
+**Moving Forward**
+Going forward I would like to implement an AI to play against as well as utilizing modals. I feel like that will make the app feel more professional and clear up some space as well as give the user clearer directions.
 

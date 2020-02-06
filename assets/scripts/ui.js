@@ -61,6 +61,7 @@ const onSignUpSuccess = function(response) {
 const onSignUpFailure = function(response) {
   $('#message').text('Failed to sign up')
   $('#message').addClass('failure')
+  $('#sign-up-form').trigger('reset')
 }
 
 const onSignInSuccess = function(response) {
@@ -110,6 +111,8 @@ const onSignOutSuccess = function(response) {
   clearBoxes()
   $('#game-counter').hide()
   $('#current-player').hide()
+  $('#start-game').hide()
+  $('#get-games').hide()
   gamesPlayed = 0
 }
 const onSignOutFailure = function(response) {
@@ -132,6 +135,7 @@ const onStartPlayingSuccess = function(response) {
   $('#game-counter').show()
   $('#game-counter').text(`Games Played: ${gamesPlayed}`)
   $('#start-game').hide()
+  $('#get-games').show()
 
 }
 
@@ -194,6 +198,15 @@ const onResetFailure = function() {
   $('#message').addClass('failure')
 }
 
+const onGetGamesSuccess = function () {
+console.log()
+}
+const onGetGamesFailure = function () {
+  $('#message').text('Failed to get games!')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -209,5 +222,7 @@ module.exports = {
   onMakeMoveFailure,
   checkForWin,
   onResetSuccess,
-  onResetFailure
+  onResetFailure,
+  onGetGamesSuccess,
+  onGetGamesFailure
 }

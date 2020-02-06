@@ -69,6 +69,15 @@ const onReset = function(event) {
       .catch(ui.onResetFailure)
 }
 
+const onGetGames = function(event) {
+  const form = event.target
+  const data = getFormFields(form)
+    api.getGames(data)
+      .then(ui.onGetGamesSuccess)
+      .catch(ui.onGetGamesFailure)
+
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -76,5 +85,6 @@ module.exports = {
   onSignOut,
   onStartGame,
   onMakeMove,
-  onReset
+  onReset,
+  onGetGames
 }
