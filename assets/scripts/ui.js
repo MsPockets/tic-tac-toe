@@ -198,8 +198,10 @@ const onResetFailure = function() {
   $('#message').addClass('failure')
 }
 
-const onGetGamesSuccess = function () {
-console.log()
+const onGetGamesSuccess = function (data) {
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  $('#message').text(`Total Games Played: ${data.games.length}`)
 }
 const onGetGamesFailure = function () {
   $('#message').text('Failed to get games!')
