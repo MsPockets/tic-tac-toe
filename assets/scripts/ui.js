@@ -14,6 +14,9 @@ const clearBoxes = function() {
   }
 }
 
+
+
+
 const checkForWin = function () {
   if ((store.game.cells[0] !== '') && (store.game.cells[0] === store.game.cells[1]) && (store.game.cells[0] === store.game.cells[2])) {
     $('#message').text(`${store.playerMarker}'s Win! `)
