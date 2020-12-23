@@ -54,7 +54,7 @@ const startPlaying = function () {
   })
 }
 const makeMove = function (event) {
-  //console.log($(event.target).attr('id'))
+  // console.log($(event.target).attr('id'))
   return $.ajax({
     url: config.apiUrl + "/games/" + store.game.id,
     method: "PATCH",
